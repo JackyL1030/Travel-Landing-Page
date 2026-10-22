@@ -2,12 +2,15 @@
 import Header from "./components/Header";
 
 //Header
+import Navigation from "./components/Navigation/Navigation";
 import Page from "./components/Page";
 
 function App() {
   return (
     <Page>
-      <Header />
+      <Header>
+        <Navigation />
+      </Header>
     </Page>
   );
 }
