@@ -1,5 +1,6 @@
 // Page
 import Header from "./components/Header";
+import Hero from "./components/Hero/Hero";
 
 //Header
 import Navigation from "./components/Navigation/Navigation";
@@ -10,6 +11,7 @@ function App() {
     <Page>
       <Header>
         <Navigation />
+        <Hero />
       </Header>
     </Page>
   );
