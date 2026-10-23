@@ -13,6 +13,7 @@ function App() {
         <Navigation />
         <Hero />
       </Header>
+      <Main></Main>
     </Page>
   );
 }
