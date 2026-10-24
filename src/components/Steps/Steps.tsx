@@ -45,8 +45,18 @@ export default function Steps() {
               alt="A photo of two men swimming"
               className="max-h-[50.8rem] rounded-[3.5rem]"
             />
-            <Rating />
-            <Rating />
+            <Rating
+              name="Tiffany Miller"
+              rating={4.6}
+              img="/headshots/tiffany.webp"
+              className="absolute top-28 left-0"
+            />
+            <Rating
+              name="Amari Reece"
+              rating={4.9}
+              img="/headshots/amari.webp"
+              className="absolute right-0 bottom-28"
+            />
           </figure>
         </div>
       </div>
