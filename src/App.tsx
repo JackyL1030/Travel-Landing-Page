@@ -8,6 +8,7 @@ import Page from "./components/Page";
 
 // Main
 import Main from "./components/Main";
+import News from "./components/News/News";
 import Services from "./components/Services/Services";
 import Steps from "./components/Steps/Steps";
 
@@ -21,6 +22,7 @@ function App() {
       <Main>
         <Steps />
         <Services />
+        <News />
       </Main>
     </Page>
   );
