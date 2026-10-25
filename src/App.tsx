@@ -8,6 +8,7 @@ import Page from "./components/Page";
 
 // Main
 import Main from "./components/Main";
+import Services from "./components/Services/Services";
 import Steps from "./components/Steps/Steps";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       </Header>
       <Main>
         <Steps />
+        <Services />
       </Main>
     </Page>
   );
