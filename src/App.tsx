@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation/Navigation";
 import Page from "./components/Page";
 
 // Main
+import ExploreMore from "./components/ExploreMore/ExploreMore";
 import Main from "./components/Main";
 import News from "./components/News/News";
 import Services from "./components/Services/Services";
@@ -23,6 +24,7 @@ function App() {
         <Steps />
         <Services />
         <News />
+        <ExploreMore />
       </Main>
     </Page>
   );
