@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { type Location } from "../../utils/contentTypes";
 import { Location as LocationIcon } from "../Icons/Location";
 import Star from "../Icons/Star";
@@ -8,7 +9,13 @@ interface LocationProps {
 
 export default function Location({ location }: LocationProps) {
   return (
-    <li className="group cursor-pointer">
+    <motion.li
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className="group cursor-pointer"
+    >
       <div className="relative mb-8 overflow-hidden rounded-3xl">
         <img
           src={location.img}
@@ -32,10 +39,10 @@ export default function Location({ location }: LocationProps) {
             <p className="text-grey-700 text-lg">{location.location}</p>
           </div>
         </div>
-        <p>
-          {location.pricePerPerson}/<span>Pax</span>
+        <p className="font-rubik text-[1.75rem]">
+          ${location.pricePerPerson}/<span className="text-[1.25rem]">Pax</span>
         </p>
       </div>
-    </li>
+    </motion.li>
   );
 }

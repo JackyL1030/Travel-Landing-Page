@@ -1,9 +1,20 @@
+import { useState } from "react";
+import { LOCATION_CARDS_SHOWN } from "../../utils/constants";
 import { locations } from "../../utils/content";
 import CaretUp from "../Icons/CaretUp";
 import Location from "./Location";
 
 export default function ExploreMore() {
-  const renderLocations = locations.slice(0, 6);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+  const totalLocations = locations.length;
+  const renderLocations = locations.slice(
+    currentIndex,
+    currentIndex + LOCATION_CARDS_SHOWN,
+  );
+
+  const handleRightClick = () => setCurrentIndex((prevIndex) => prevIndex + 1);
+  const handleLeftClick = () => setCurrentIndex((prevIndex) => prevIndex - 1);
 
   return (
     <section className="px-24 py-26">
@@ -19,10 +30,20 @@ export default function ExploreMore() {
           </div>
 
           <div className="mb-2 flex gap-x-6">
-            <button className="bg-grey-300 not-disabled:hover:bg-grey-400 flex size-18 cursor-pointer place-content-center rounded-full transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50">
+            <button
+              className="bg-grey-300 not-disabled:hover:bg-grey-400 flex size-18 cursor-pointer place-content-center rounded-full transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50"
+              aria-label="arrow left"
+              onClick={handleLeftClick}
+              disabled={currentIndex === 0}
+            >
               <CaretUp className="w-6 -rotate-90 fill-white" />
             </button>
-            <button className="bg-primary-700 not-disabled:hover:bg-primary-800 flex size-18 cursor-pointer place-content-center rounded-full transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50">
+            <button
+              className="bg-primary-700 not-disabled:hover:bg-primary-800 flex size-18 cursor-pointer place-content-center rounded-full transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50"
+              aria-label="arrow right"
+              onClick={handleRightClick}
+              disabled={currentIndex >= totalLocations - LOCATION_CARDS_SHOWN}
+            >
               <CaretUp className="w-6 rotate-90 fill-white" />
             </button>
           </div>
