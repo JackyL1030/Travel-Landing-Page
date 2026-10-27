@@ -8,6 +8,7 @@ import Page from "./components/Page";
 
 // Main
 import ExploreMore from "./components/ExploreMore/ExploreMore";
+import FrequentTraveler from "./components/FrequentTraveler";
 import Main from "./components/Main";
 import News from "./components/News/News";
 import Services from "./components/Services/Services";
@@ -25,6 +26,7 @@ function App() {
         <Services />
         <News />
         <ExploreMore />
+        <FrequentTraveler />
       </Main>
     </Page>
   );
