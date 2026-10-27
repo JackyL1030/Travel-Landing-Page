@@ -13,6 +13,7 @@ import Main from "./components/Main";
 import News from "./components/News/News";
 import Services from "./components/Services/Services";
 import Steps from "./components/Steps/Steps";
+import Testimonials from "./components/Testimonials/Testimonials";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <News />
         <ExploreMore />
         <FrequentTraveler />
+        <Testimonials />
       </Main>
     </Page>
   );

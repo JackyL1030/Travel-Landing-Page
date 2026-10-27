@@ -1,27 +1,27 @@
 import {
   type NavigationLink,
-  HeroBenefit,
-  Step,
-  Service,
-  Testimonial,
+  BlogPost,
   FooterCol,
   FooterSocials,
-  BlogPost,
+  HeroBenefit,
   Location,
+  Service,
+  Step,
+  Testimonial,
 } from "./contentTypes";
 
-import Booking from "../components/Icons/Booking";
 import Airplane from "../components/Icons/Airplane";
-import Guide from "../components/Icons/Guide";
+import Booking from "../components/Icons/Booking";
 import Box from "../components/Icons/Box";
 import Culinary from "../components/Icons/Culinary";
 import Destination from "../components/Icons/Destination";
-import Linkedin from "../components/Icons/Linkedin";
-import Instagram from "../components/Icons/Instagram";
-import WhatsApp from "../components/Icons/WhatsApp";
-import Phone from "../components/Icons/Phone";
 import Email from "../components/Icons/Email";
+import Guide from "../components/Icons/Guide";
+import Instagram from "../components/Icons/Instagram";
+import Linkedin from "../components/Icons/Linkedin";
 import { Location as LocationIcon } from "../components/Icons/Location";
+import Phone from "../components/Icons/Phone";
+import WhatsApp from "../components/Icons/WhatsApp";
 
 const navigationLinks: NavigationLink[] = [
   {
@@ -281,7 +281,7 @@ const testimonials: Testimonial[] = [
     name: "Linh Chuong",
     description:
       "Our experience with GoTravel has been nothing short of exceptional. We were able to find & book our annual vacation to Thailand in under an hour! ",
-    vacation: "Trip to Thialand",
+    vacation: "Trip to Thailand",
   },
   {
     id: 2,
@@ -358,15 +358,15 @@ const footerSocials: FooterSocials[] = [
 ];
 
 export {
-  navigationLinks,
-  heroBenefits,
-  steps,
-  services,
   blogPosts,
-  locations,
-  testimonials,
-  footerSocials,
   footerCols,
+  footerSocials,
+  heroBenefits,
+  locations,
+  navigationLinks,
+  services,
+  steps,
+  testimonials,
 };
 
 // BLOG POSTS CSV
