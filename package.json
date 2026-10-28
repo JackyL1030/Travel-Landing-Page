@@ -11,7 +11,10 @@
     "deploy": "tsc -b && vite build && vite preview --open"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
     "@tailwindcss/vite": "^4.0.17",
+    "@tanstack/react-query": "^5.105.0",
+    "@tanstack/react-query-devtools": "^5.105.0",
     "motion": "^12.43.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
