@@ -15,6 +15,9 @@ import Services from "./components/Services/Services";
 import Steps from "./components/Steps/Steps";
 import Testimonials from "./components/Testimonials/Testimonials";
 
+// Footer
+import Footer from "./components/Footer";
+
 function App() {
   return (
     <Page>
@@ -22,6 +25,7 @@ function App() {
         <Navigation />
         <Hero />
       </Header>
+
       <Main>
         <Steps />
         <Services />
@@ -30,6 +34,8 @@ function App() {
         <FrequentTraveler />
         <Testimonials />
       </Main>
+
+      <Footer />
     </Page>
   );
 }
