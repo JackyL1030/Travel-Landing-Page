@@ -1,5 +1,6 @@
 import useQueryBlogPosts from "../../hooks/useQueryBlogPosts";
 import Error from "../Error";
+import Loader from "../Loader";
 import BlogPost from "./BlogPost";
 
 export default function News() {
@@ -12,14 +13,14 @@ export default function News() {
           Latest news from us
         </h2>
 
-        {/* success state */}
+        {isLoading && !error && <Loader />}
+
         {!isLoading && !error && (
           <ul className="flex flex-col gap-y-34">
             {blogPosts?.map((post) => <BlogPost post={post} key={post.id} />)}
           </ul>
         )}
 
-        {/* error state */}
         {!isLoading && error && (
           <Error>
             It looks like something went wrong while loading our recent news.
