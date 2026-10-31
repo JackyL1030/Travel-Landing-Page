@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { useState, ChangeEvent } from "react";
 
 interface FormValues {
   [key: string]: string;
@@ -15,14 +15,8 @@ export function useFormAndValidation(inputs: FormValues) {
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
-    setValues((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    setErrors((prev) => ({
-      ...prev,
-      [name]: e.target.validationMessage,
-    }));
+    setValues((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: e.target.validationMessage }));
     setIsValid(e?.target?.closest("form")?.checkValidity() ?? false);
   }
 

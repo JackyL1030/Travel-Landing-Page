@@ -1,9 +1,9 @@
-import { AnimatePresence, motion } from "motion/react";
 import { MouseEvent, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { useFormAndValidation } from "../hooks/useFormAndValidation";
+import Checkmark from "./Icons/Checkmark";
 import useInsertLead from "../hooks/useInsertLead";
 import { FORM_STATE_DURATION } from "../utils/constants";
-import Checkmark from "./Icons/Checkmark";
 
 interface FormState {
   currentState: "idle" | "pending" | "success" | "error";
@@ -39,8 +39,10 @@ export default function FrequentTravelers() {
   async function handleSubmit(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     if (isChecked && isValid) {
-      // we are now entering a pending state..
+      // we are now entering  a pending..
       setFormState({ currentState: "pending", errorMessage: null });
+
+      // lets attempt to insert lead data
       mutation.mutate({
         createdAt: Date.now(),
         fullName: values.fullName,
@@ -53,6 +55,8 @@ export default function FrequentTravelers() {
     resetForm();
     setIsChecked(false);
     setFormState({ currentState: "success", errorMessage: null });
+
+    // Tell the browser to run this function after 1250 ms, reset form state
     setTimeout(
       () => setFormState({ currentState: "idle", errorMessage: null }),
       FORM_STATE_DURATION,
@@ -61,6 +65,7 @@ export default function FrequentTravelers() {
 
   function handleError(error: Error) {
     setFormState({ currentState: "error", errorMessage: error.message });
+
     setTimeout(
       () => setFormState({ currentState: "idle", errorMessage: null }),
       FORM_STATE_DURATION,
@@ -68,10 +73,10 @@ export default function FrequentTravelers() {
   }
 
   return (
-    <section className="bg-primary-100 px-24 py-36">
-      <div className="border-y-grey-500/40 m-auto flex max-w-389 items-center justify-between gap-x-28 border-y-1 py-26">
-        <div className="basis-150 text-center">
-          <h3 className="tracking-6 mb-9.5 text-[1.75rem]/14 font-semibold">
+    <section className="bg-primary-100 max-3xl:px-20 max-3xl:py-34 px-24 py-36 max-2xl:px-14 max-2xl:py-28 max-xl:px-10 max-xl:py-26 max-lg:px-6 max-lg:pt-24 max-lg:pb-32 max-md:pb-28 max-sm:px-4">
+      <div className="border-y-grey-500/40 m-auto flex max-w-389 items-center justify-between gap-x-28 border-y-1 py-26 max-2xl:gap-x-20 max-2xl:py-20 max-xl:gap-x-10 max-xl:py-16 max-lg:max-w-lg max-lg:flex-col max-lg:gap-y-16 max-lg:border-none max-lg:py-0">
+        <div className="basis-150 text-center max-lg:basis-auto">
+          <h3 className="tracking-6 max-3xl:text-[1.5rem]/12 max-3xl:mb-8 mb-9.5 text-[1.75rem]/14 font-semibold max-md:mb-9.5">
             Learn About Our Frequent Traveler Program
           </h3>
           <p className="text-grey-800 text-base/13.5">
@@ -80,10 +85,10 @@ export default function FrequentTravelers() {
             nights, free meals, and exclusive offers from resorts around globe?
           </p>
         </div>
-        <div className="bg-grey-500/40 block w-0.25 self-stretch" />
-        <form className="flex basis-150 flex-col">
-          <label className="mb-8">
-            <p className="tracking-6 mb-3 text-lg/9.5 font-semibold">
+        <div className="bg-grey-500/40 block w-0.25 self-stretch max-lg:hidden" />
+        <form className="flex basis-150 flex-col max-lg:basis-auto">
+          <label className="max-3xl:mb-7 mb-8 max-md:mb-8">
+            <p className="tracking-6 max-3xl:mb-2.5 mb-3 text-lg/9.5 font-semibold max-2xl:text-base max-md:mb-3">
               Full Name
             </p>
             <input
@@ -96,7 +101,7 @@ export default function FrequentTravelers() {
               maxLength={50}
               disabled={formState.currentState !== "idle"}
               placeholder="Jane Doe"
-              className={`placeholder:text-grey-400 w-full rounded-lg bg-white py-3.5 pl-4 transition-all duration-200 placeholder:font-light focus:outline-1 disabled:opacity-50 ${errors.fullName && "outline-red"}`}
+              className={`placeholder:text-grey-400 w-full rounded-lg bg-white py-3.5 pl-4 transition-all duration-200 placeholder:font-light focus:outline-1 disabled:opacity-50 max-sm:py-4 max-sm:text-sm ${errors.fullName && "outline-red"}`}
             />
             <AnimatePresence>
               {errors.fullName && (
@@ -112,8 +117,10 @@ export default function FrequentTravelers() {
               )}
             </AnimatePresence>
           </label>
-          <label className="mb-12">
-            <p className="tracking-6 mb-3 text-lg/9.5 font-semibold">Email</p>
+          <label className="max-3xl:mb-11.5 mb-12 max-md:mb-16">
+            <p className="tracking-6 max-3xl:mb-2.5 mb-3 text-lg/9.5 font-semibold max-2xl:text-base max-md:mb-3">
+              Email
+            </p>
             <input
               required
               type="email"
@@ -124,7 +131,7 @@ export default function FrequentTravelers() {
               maxLength={50}
               disabled={formState.currentState !== "idle"}
               placeholder="janedoe@gmail.com"
-              className={`placeholder:text-grey-400 w-full rounded-lg bg-white py-3.5 pl-4 transition-all duration-200 not-hover:transition-none placeholder:font-light focus:outline-1 disabled:opacity-50 ${errors.emailAddress && "outline-red"}`}
+              className={`placeholder:text-grey-400 w-full rounded-lg bg-white py-3.5 pl-4 transition-all duration-200 not-hover:transition-none placeholder:font-light focus:outline-1 disabled:opacity-50 max-sm:py-4 max-sm:text-sm ${errors.emailAddress && "outline-red"}`}
             />
             <AnimatePresence>
               {errors.emailAddress && (
@@ -143,7 +150,7 @@ export default function FrequentTravelers() {
           <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-8">
             <label className="text-grey-800 flex cursor-pointer items-center gap-x-1.5">
               <button
-                className="flex size-5 cursor-pointer items-center justify-center rounded-xs bg-white p-1 disabled:opacity-50"
+                className="flex size-5 cursor-pointer items-center justify-center rounded-xs bg-white p-1 disabled:opacity-50 max-xl:size-4.5"
                 type="button"
                 onClick={() => setIsChecked((c) => !c)}
                 disabled={formState.currentState === "pending"}
@@ -152,14 +159,14 @@ export default function FrequentTravelers() {
                   className={`transition-all duration-200 ${isChecked ? "visible size-3 opacity-100" : "invisible size-2 opacity-0"}`}
                 />
               </button>
-              <p className="text-sm tracking-[.03rem]">
+              <p className="text-sm tracking-[.03rem] max-xl:text-xs">
                 Agree to receive promotional email updates
               </p>
             </label>
             <motion.button
               onClick={handleSubmit}
               disabled={formState.currentState !== "idle"}
-              className={`not-disabled:hover:bg-primary-800 cursor-pointer rounded-[.625rem] px-8 py-3.5 font-medium text-white transition-all duration-200 disabled:cursor-not-allowed ${buttonStateClasses[formState.currentState]}`}
+              className={`not-disabled:hover:bg-primary-800 cursor-pointer rounded-[.625rem] px-8 py-3.5 font-medium text-white transition-all duration-200 disabled:cursor-not-allowed max-xl:py-3 max-xl:text-sm max-xl:font-normal max-lg:py-3.5 max-lg:text-base ${buttonStateClasses[formState.currentState]}`}
             >
               {formState.currentState === "idle" && "Learn More"}
               {formState.currentState === "pending" && "Submitting..."}

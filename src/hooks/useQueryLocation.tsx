@@ -6,10 +6,7 @@ export default function useQueryLocations() {
     data: locations,
     error,
     isLoading,
-  } = useQuery({
-    queryKey: ["Locations"],
-    queryFn: getLocations,
-  });
+  } = useQuery({ queryKey: ["Locations"], queryFn: getLocations });
 
   return {
     locations,

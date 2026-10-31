@@ -1,27 +1,27 @@
 import {
   type NavigationLink,
-  BlogPost,
+  HeroBenefit,
+  Step,
+  Service,
+  Testimonial,
   FooterCol,
   FooterSocials,
-  HeroBenefit,
+  BlogPost,
   Location,
-  Service,
-  Step,
-  Testimonial,
 } from "./contentTypes";
 
-import Airplane from "../components/Icons/Airplane";
 import Booking from "../components/Icons/Booking";
+import Airplane from "../components/Icons/Airplane";
+import Guide from "../components/Icons/Guide";
 import Box from "../components/Icons/Box";
 import Culinary from "../components/Icons/Culinary";
 import Destination from "../components/Icons/Destination";
-import Email from "../components/Icons/Email";
-import Guide from "../components/Icons/Guide";
-import Instagram from "../components/Icons/Instagram";
 import Linkedin from "../components/Icons/Linkedin";
-import { Location as LocationIcon } from "../components/Icons/Location";
-import Phone from "../components/Icons/Phone";
+import Instagram from "../components/Icons/Instagram";
 import WhatsApp from "../components/Icons/WhatsApp";
+import Phone from "../components/Icons/Phone";
+import Email from "../components/Icons/Email";
+import { Location as LocationIcon } from "../components/Icons/Location";
 
 const navigationLinks: NavigationLink[] = [
   {
@@ -281,7 +281,7 @@ const testimonials: Testimonial[] = [
     name: "Linh Chuong",
     description:
       "Our experience with GoTravel has been nothing short of exceptional. We were able to find & book our annual vacation to Thailand in under an hour! ",
-    vacation: "Trip to Thailand",
+    vacation: "Trip to Thialand",
   },
   {
     id: 2,
@@ -358,22 +358,22 @@ const footerSocials: FooterSocials[] = [
 ];
 
 export {
-  blogPosts,
-  footerCols,
-  footerSocials,
-  heroBenefits,
-  locations,
   navigationLinks,
-  services,
+  heroBenefits,
   steps,
+  services,
+  blogPosts,
+  locations,
   testimonials,
+  footerSocials,
+  footerCols,
 };
 
 // BLOG POSTS CSV
 
-//img_url,date_created,article_title,article_summary,img_alt
-//some_url,2024-11-19,Stories from Around the Globe,"From the bustling streets of Tokyo to the serene landscapes of  Patagonia, each story offers a glimpse into the diverse cultures, breathtaking landscapes, and unforgettable encounters.",An arial image of 4 small islands near a shoreline with 2 boats passing between them.
-//some_url,2024-12-25,Exploring Hidden Gems,"Dive into our latest blog post as we uncover the enchanting allure of  off the beaten path destinations. From secluded beaches to quaint  villages, we guide you on a journey to discover the hidden gems waiting  to be explored.",An arial shot of bungalows on the water in the Maldives
+// img_url,date_created,article_title,article_summary,img_alt
+// some_url,2024-11-19,Stories from Around the Globe,"From the bustling streets of Tokyo to the serene landscapes of  Patagonia, each story offers a glimpse into the diverse cultures, breathtaking landscapes, and unforgettable encounters.",An arial image of 4 small islands near a shoreline with 2 boats passing between them.
+// some_url,2024-12-25,Exploring Hidden Gems,"Dive into our latest blog post as we uncover the enchanting allure of  off the beaten path destinations. From secluded beaches to quaint  villages, we guide you on a journey to discover the hidden gems waiting  to be explored.",An arial shot of bungalows on the water in the Maldives
 
 // LOCATION CARDS CSV
 

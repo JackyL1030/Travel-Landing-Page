@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
-import { insertLead } from "../api/api";
 import { Lead } from "../utils/contentTypes";
+import { insertLead } from "../api/api";
 
 interface useInsertLeadProps {
   onSuccess: () => void;

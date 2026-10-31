@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { BlogPost, Lead, Location } from "../utils/contentTypes";
 import { Database } from "./Database";
 
+// CREATE SUPABASE CLIENT
 const supabaseUrl = "https://iikklslehebceagtvcsw.supabase.co";
 const supabaseKey = import.meta.env.VITE_SUPABASE_API_KEY;
 const supabase = createClient<Database>(supabaseUrl, supabaseKey);
@@ -9,11 +10,9 @@ const supabase = createClient<Database>(supabaseUrl, supabaseKey);
 export async function getBlogPosts() {
   const { data, error } = await supabase.from("BlogPosts").select();
 
-  //throw new Error("some error occurred...");
-
   if (error) {
     throw new Error(
-      `ERROR: Databse returned error when fetching blog posts: ${error.message}`,
+      `ERROR: Database returned error when fetching blog posts: ${error.message}`,
     );
   }
 
@@ -36,7 +35,7 @@ export async function getLocations() {
 
   if (error) {
     throw new Error(
-      `ERROR: Databse returned error when fetching locations: ${error.message}`,
+      `ERROR: Database returned error when fetching locations: ${error.message}`,
     );
   }
 
@@ -66,7 +65,7 @@ export async function insertLead(lead: Lead) {
 
   if (error) {
     throw new Error(
-      `ERROR: Databse returned error when inserting lead data: ${error.message}`,
+      `ERROR: Database returned an error when inserting lead data: ${error.message}`,
     );
   }
 }

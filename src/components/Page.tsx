@@ -4,6 +4,8 @@ interface PageProps {
   children: ReactElement[];
 }
 
-export default function Page(props: PageProps) {
+function Page(props: PageProps) {
   return <div>{props.children}</div>;
 }
+
+export default Page;
