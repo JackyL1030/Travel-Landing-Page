@@ -15,7 +15,7 @@ export default function MobileDropdown({ links }: MobileDropdownProps) {
       className="z-10 flex flex-col gap-y-6 overflow-hidden pl-3"
     >
       {links?.map((link) => (
-        <li className="text-grey-600">
+        <li className="text-grey-600" key={link.id}>
           <a href="#">{link.text}</a>
         </li>
       ))}

@@ -12,6 +12,7 @@ export default function MobileMenu() {
 
   return (
     <motion.div
+      initial="hidden"
       animate={menuOpened ? "visible" : "hidden"}
       variants={{
         hidden: {
@@ -23,7 +24,7 @@ export default function MobileMenu() {
           display: "flex",
         },
       }}
-      className="fixed top-0 right-0 bottom-0 left-0 hidden justify-end bg-white/30 pl-30"
+      className="fixed top-0 right-0 bottom-0 left-0 justify-end bg-white/30 pl-30"
     >
       <motion.nav
         animate={menuOpened ? "visible" : "hidden"}
