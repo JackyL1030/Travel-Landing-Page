@@ -2,12 +2,20 @@ import { createClient } from "@supabase/supabase-js";
 import { BlogPost, Lead, Location } from "../utils/contentTypes";
 import { Database } from "./Database";
 
-// CREATE SUPABASE CLIENT
-const supabaseUrl = "https://iikklslehebceagtvcsw.supabase.co";
+// SUPABASE CONFIGURATION
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_API_KEY;
+
+// VALIDATE ENVIRONMENT VARIABLES
+if (!supabaseUrl || !supabaseKey) {
+  throw new Error("Missing Supabase environment variables.");
+}
+
+// CREATE SUPABASE CLIENT
 const supabase = createClient<Database>(supabaseUrl, supabaseKey);
 
-export async function getBlogPosts() {
+// FETCH BLOG POSTS
+export async function getBlogPosts(): Promise<BlogPost[]> {
   const { data, error } = await supabase.from("BlogPosts").select();
 
   if (error) {
@@ -16,21 +24,20 @@ export async function getBlogPosts() {
     );
   }
 
-  const blogPosts: BlogPost[] = data.map((post) => {
-    return {
-      id: post.id,
-      img: post.img_url,
-      alt: post.img_alt,
-      date: post.date_created,
-      title: post.article_title,
-      summary: post.article_summary,
-    };
-  });
+  const blogPosts: BlogPost[] = data.map((post) => ({
+    id: post.id,
+    img: post.img_url,
+    alt: post.img_alt,
+    date: post.date_created,
+    title: post.article_title,
+    summary: post.article_summary,
+  }));
 
   return blogPosts;
 }
 
-export async function getLocations() {
+// FETCH LOCATIONS
+export async function getLocations(): Promise<Location[]> {
   const { data, error } = await supabase.from("Locations").select();
 
   if (error) {
@@ -39,22 +46,21 @@ export async function getLocations() {
     );
   }
 
-  const locations: Location[] = data.map((location) => {
-    return {
-      id: location.id,
-      img: location.img_url,
-      alt: location.img_alt,
-      rating: location.rating,
-      title: location.title,
-      location: location.location,
-      pricePerPerson: location.price_per_person,
-    };
-  });
+  const locations: Location[] = data.map((location) => ({
+    id: location.id,
+    img: location.img_url,
+    alt: location.img_alt,
+    rating: location.rating,
+    title: location.title,
+    location: location.location,
+    pricePerPerson: location.price_per_person,
+  }));
 
   return locations;
 }
 
-export async function insertLead(lead: Lead) {
+// INSERT LEAD
+export async function insertLead(lead: Lead): Promise<void> {
   const { error } = await supabase.from("Leads").insert([
     {
       created_at: lead.createdAt,
