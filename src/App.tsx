@@ -23,30 +23,33 @@ import Footer from "./components/Footer.tsx";
 
 // Mobile
 import MobileMenu from "./components/Navigation/MobileMenu.tsx";
+import MenuContextProvider from "./contexts/MobileMenuContext.tsx";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Page>
-        <Header>
-          <Navigation />
-          <Hero />
-          <MobileMenu />
-        </Header>
+      <MenuContextProvider>
+        <Page>
+          <Header>
+            <Navigation />
+            <Hero />
+            <MobileMenu />
+          </Header>
 
-        <Main>
-          <Steps />
-          <Services />
-          <News />
-          <ExploreMore />
-          <FrequentTravelers />
-          <Testimonials />
-        </Main>
+          <Main>
+            <Steps />
+            <Services />
+            <News />
+            <ExploreMore />
+            <FrequentTravelers />
+            <Testimonials />
+          </Main>
 
-        <Footer />
-      </Page>
+          <Footer />
+        </Page>
+      </MenuContextProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );

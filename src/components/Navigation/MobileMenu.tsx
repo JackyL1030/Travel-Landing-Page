@@ -1,14 +1,14 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
+import { useMenuContext } from "../../contexts/MobileMenuContext";
 import { navigationLinks } from "../../utils/content";
 import CaretUp from "../Icons/CaretUp";
 import Close from "../Icons/Close";
 import MobileDropdown from "./MobileDropdown";
 
 export default function MobileMenu() {
+  const { menuOpened } = useMenuContext();
   const [activeLinkId, setActiveLinkId] = useState<number>(-1);
-
-  const menuOpened = true;
 
   return (
     <motion.div
