@@ -1,49 +1,55 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 // Page
-import Header from "./components/Header";
-import Hero from "./components/Hero/Hero";
-
-// Header
-import Navigation from "./components/Navigation/Navigation";
 import Page from "./components/Page";
 
+// Header
+import Header from "./components/Header.tsx";
+import Hero from "./components/Hero/Hero.tsx";
+import Navigation from "./components/Navigation/Navigation.tsx";
+
 // Main
-import ExploreMore from "./components/ExploreMore/ExploreMore";
-import FrequentTraveler from "./components/FrequentTraveler";
-import Main from "./components/Main";
-import News from "./components/News/News";
-import Services from "./components/Services/Services";
-import Steps from "./components/Steps/Steps";
-import Testimonials from "./components/Testimonials/Testimonials";
+import ExploreMore from "./components/ExploreMore/ExploreMore.tsx";
+import FrequentTravelers from "./components/FrequentTravelers.tsx";
+import Main from "./components/Main.tsx";
+import News from "./components/News/News.tsx";
+import Services from "./components/Services/Services.tsx";
+import Steps from "./components/Steps/Steps.tsx";
+import Testimonials from "./components/Testimonials/Testimonials.tsx";
 
 // Footer
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer.tsx";
+
+// mobile menu
+import MobileMenu from "./components/Navigation/MobileMenu.tsx";
+import MenuContextProvider from "./contexts/MobileMenuContext.tsx";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Page>
-        <Header>
-          <Navigation />
-          <Hero />
-        </Header>
+      <MenuContextProvider>
+        <Page>
+          <Header>
+            <Navigation />
+            <Hero />
+            <MobileMenu />
+          </Header>
 
-        <Main>
-          <Steps />
-          <Services />
-          <News />
-          <ExploreMore />
-          <FrequentTraveler />
-          <Testimonials />
-        </Main>
+          <Main>
+            <Steps />
+            <Services />
+            <News />
+            <ExploreMore />
+            <FrequentTravelers />
+            <Testimonials />
+          </Main>
 
-        <Footer />
-      </Page>
-
+          <Footer />
+        </Page>
+      </MenuContextProvider>
       <ReactQueryDevtools />
     </QueryClientProvider>
   );
